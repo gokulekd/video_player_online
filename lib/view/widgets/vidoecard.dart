@@ -44,22 +44,30 @@ class _VideoCardState extends State<VideoCard> {
   }
 
   Widget videoplayer() {
-    return _videoPlayerController!.value.isInitialized
-        ? AspectRatio(
-            aspectRatio: _videoPlayerController!.value.aspectRatio,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: VideoPlayer(_videoPlayerController!),
-            ),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: _videoPlayerController!.value.isInitialized
+          ? Column(
+            children: [
+              Text(widget.video.title),
+              AspectRatio(
+                  aspectRatio: _videoPlayerController!.value.aspectRatio,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: VideoPlayer(_videoPlayerController!),
+                  ),
+                ),
+            ],
           )
-        : Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 200,
-              width: double.infinity,
-              color: Colors.black,
-              child: const Center(child: CircularProgressIndicator.adaptive()),
+          : Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 200,
+                width: double.infinity,
+                color: Colors.black,
+                child: const Center(child: CircularProgressIndicator.adaptive()),
+              ),
             ),
-          );
+    );
   }
 }
