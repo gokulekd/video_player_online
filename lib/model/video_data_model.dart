@@ -1,8 +1,4 @@
-// To parse this JSON data, do
-//
-//     final videoDataModel = videoDataModelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 List<VideoDataModel> videoDataModelFromJson(String str) => List<VideoDataModel>.from(json.decode(str).map((x) => VideoDataModel.fromJson(x)));

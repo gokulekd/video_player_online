@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:video_player_online/view/home_page.dart';
-import 'package:video_player_online/view/screen_homepage.dart';
+import 'package:video_player_online/view/screen_Home_page.dart';
+
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -27,5 +27,5 @@ class SplashScreen extends StatelessWidget {
 
 navigation() async {
   await Future.delayed(const Duration(seconds: 3));
-  Get.off(() =>  ScreenHomePage());
+  Get.off(() =>  const ScreenHome());
 }

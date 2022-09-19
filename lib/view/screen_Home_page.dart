@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:video_player_online/model/video_data.dart';
 import 'package:video_player_online/model/video_data_model.dart';
@@ -11,25 +10,16 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: CustomScrollView(
         slivers: [
           const CustomSliverAppBar(),
           SliverList(
-            delegate: SliverChildBuilderDelegate(
-              
-        
-              
-              (context, index) {
-               
-                 final allvideo = videoDataModelFromJson(jsonEncode(videoData));
-   
+            delegate: SliverChildBuilderDelegate((context, index) {
+              final allvideo = videoDataModelFromJson(jsonEncode(videoData));
 
-                return VideoCard(video :allvideo[index]);
-                
-              },
-              childCount: videoData.length
-            ),
+              return VideoCard(video: allvideo[index]);
+            }, childCount: videoData.length),
           ),
         ],
       ),
